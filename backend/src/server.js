@@ -40,6 +40,10 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'BuildCorp API is running' });
 });
 
+app.get('/', (req, res) => {
+  res.send('BuildCorp API is running on Vercel.');
+});
+
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
