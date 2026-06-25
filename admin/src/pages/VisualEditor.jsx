@@ -89,7 +89,7 @@ export default function VisualEditor() {
       {}
       <iframe 
         ref={iframeRef}
-        src="http://localhost:5173?editMode=true"
+        src={`${import.meta.env.VITE_FRONTEND_URL || 'http://localhost:5173'}?editMode=true`}
         title="Visual Website Editor"
         className="w-full h-full border-2 border-white/5 pt-8 bg-black"
       />
