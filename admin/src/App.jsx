@@ -9,7 +9,7 @@ function App() {
       <Routes>
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/admin/dashboard/*" element={<AdminDashboard />} />
-        {/* Default redirect to admin login */}
+        {}
         <Route path="*" element={<AdminLogin />} />
       </Routes>
     </Router>

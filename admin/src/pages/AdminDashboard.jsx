@@ -22,7 +22,7 @@ export default function AdminDashboard() {
 
   return (
     <div className="min-h-screen bg-brand-950 text-white font-sans flex flex-col md:flex-row">
-      {/* Sidebar Navigation */}
+      {}
       <aside className="w-full md:w-64 bg-brand-900/40 border-r border-white/5 flex flex-col justify-between">
         <div className="p-8">
           <div className="mb-12">
@@ -62,7 +62,7 @@ export default function AdminDashboard() {
         </div>
       </aside>
 
-      {/* Main Content Area */}
+      {}
       <main className="flex-1 p-8 md:p-12 lg:p-16 overflow-y-auto">
         <Routes>
           <Route path="/" element={<AdminProjects />} />

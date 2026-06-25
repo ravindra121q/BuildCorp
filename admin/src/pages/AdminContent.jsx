@@ -201,7 +201,7 @@ export default function AdminContent() {
           <p className="text-white/50 italic">No content blocks exist for this page yet. Create one below.</p>
         )}
 
-        {/* Removed Create New Content Block Form to enforce strict schema */}
+        {}
       </div>
     </div>
   );

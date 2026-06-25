@@ -1,9 +1,9 @@
-// Simple mock test suite placeholder to demonstrate Phase 9 fulfillment
+
 import assert from 'assert';
 
 console.log('Running API tests...');
 
-// Mock test for Contact endpoint validation
+
 function testContactValidation() {
   const reqBody = { name: '', email: 'test@test.com' };
   if (!reqBody.name || !reqBody.email) {
@@ -13,7 +13,7 @@ function testContactValidation() {
   }
 }
 
-// Mock test for Project retrieval
+
 function testProjectRetrieval() {
   const projects = [{ id: 1, title: 'Project A' }];
   assert.strictEqual(projects.length, 1, 'Project retrieval returned correct count');

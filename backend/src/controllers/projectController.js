@@ -23,7 +23,7 @@ export const createProject = async (req, res) => {
   try {
     const { title, category, client, location, year, scope, description, status } = req.body;
     
-    // Extract Cloudinary URLs from multer req.files
+    
     const heroImage = req.files && req.files['heroImage'] ? req.files['heroImage'][0].path : '';
     const gallery = req.files && req.files['gallery'] ? req.files['gallery'].map(file => file.path) : [];
 
@@ -49,7 +49,7 @@ export const updateProject = async (req, res) => {
     const project = await Project.findById(req.params.id);
     if (!project) return res.status(404).json({ message: 'Project not found' });
 
-    // Update basic fields
+    
     project.title = title || project.title;
     project.category = category || project.category;
     project.client = client || project.client;
@@ -59,7 +59,7 @@ export const updateProject = async (req, res) => {
     project.description = description || project.description;
     project.status = status || project.status;
 
-    // Update images if new ones are uploaded
+    
     if (req.files && req.files['heroImage']) {
       project.heroImage = req.files['heroImage'][0].path;
     }
@@ -79,7 +79,7 @@ export const updateProject = async (req, res) => {
         return item;
       }).filter(Boolean);
     } else if (req.files && req.files['gallery']) {
-      // Legacy fallback: append new files
+      
       project.gallery = [...project.gallery, ...req.files['gallery'].map(file => file.path)];
     }
 

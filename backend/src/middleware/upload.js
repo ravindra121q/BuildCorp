@@ -7,7 +7,7 @@ const storage = new CloudinaryStorage({
   params: {
     folder: 'buildcorp_projects',
     allowedFormats: ['jpg', 'png', 'jpeg', 'webp'],
-    transformation: [{ width: 2500, crop: 'limit' }] // Max width to optimize massive images
+    transformation: [{ width: 2500, crop: 'limit' }] 
   },
 });
 

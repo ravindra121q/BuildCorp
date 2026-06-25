@@ -21,9 +21,9 @@ export default function VisualEditor() {
   };
 
   useEffect(() => {
-    // Listen for messages from the frontend iframe
+    
     const handleMessage = (e) => {
-      // For security in a real app, verify e.origin
+      
       if (e.data && e.data.type === 'OPEN_EDITOR') {
         setCurrentBlock({
           page: e.data.page,
@@ -43,7 +43,7 @@ export default function VisualEditor() {
   const handleSave = async () => {
     setLoading(true);
     try {
-      // 1. Save to database
+      
       const token = localStorage.getItem('adminToken');
       
       if (currentBlock.model === 'project' && currentBlock.projectId) {
@@ -62,7 +62,7 @@ export default function VisualEditor() {
         });
       }
 
-      // 2. Notify the iframe to update immediately without reloading
+      
       if (iframeRef.current && iframeRef.current.contentWindow) {
         iframeRef.current.contentWindow.postMessage({
           type: 'CONTENT_UPDATED',
@@ -81,12 +81,12 @@ export default function VisualEditor() {
 
   return (
     <div className="relative w-full h-[calc(100vh-8rem)]">
-      {/* Informational Header */}
+      {}
       <div className="absolute top-0 left-0 w-full bg-accent-600 text-white text-xs font-bold uppercase tracking-widest p-2 text-center z-10 shadow-lg">
         Visual Edit Mode Active: Hover over text blocks and click to edit
       </div>
 
-      {/* The Live Website injected securely */}
+      {}
       <iframe 
         ref={iframeRef}
         src="http://localhost:5173?editMode=true"
@@ -94,7 +94,7 @@ export default function VisualEditor() {
         className="w-full h-full border-2 border-white/5 pt-8 bg-black"
       />
 
-      {/* Floating Rich Text Editor Modal */}
+      {}
       {editorOpen && (
         <div className="absolute inset-0 bg-brand-950/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-brand-900 border border-white/20 p-8 w-full max-w-3xl shadow-2xl">

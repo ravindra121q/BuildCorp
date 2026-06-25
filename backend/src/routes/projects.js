@@ -3,7 +3,7 @@ import Project from '../models/Project.js';
 
 const router = express.Router();
 
-// GET all projects
+
 router.get('/', async (req, res) => {
   try {
     const projects = await Project.find({}).sort({ completionDate: -1 });
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET featured projects
+
 router.get('/featured', async (req, res) => {
   try {
     const projects = await Project.find({ isFeatured: true }).sort({ completionDate: -1 }).limit(3);
@@ -23,7 +23,7 @@ router.get('/featured', async (req, res) => {
   }
 });
 
-// GET single project by slug
+
 router.get('/:slug', async (req, res) => {
   try {
     const project = await Project.findOne({ slug: req.params.slug });

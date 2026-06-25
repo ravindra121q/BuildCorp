@@ -177,12 +177,12 @@ async function seedDB() {
     await mongoose.connect(MONGO_URI);
     console.log('Connected to MongoDB');
 
-    // Clear existing data
+    
     await Project.deleteMany({});
     await PageContent.deleteMany({});
     console.log('Cleared existing projects and content');
 
-    // Insert new data
+    
     await Project.insertMany(dummyProjects);
     console.log(`Inserted ${dummyProjects.length} dummy projects`);
 

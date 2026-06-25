@@ -33,10 +33,10 @@ const projectSchema = new mongoose.Schema({
   },
   heroImage: {
     type: String,
-    required: true // Cloudinary URL
+    required: true 
   },
   gallery: [{
-    type: String // Array of Cloudinary URLs
+    type: String 
   }],
   status: {
     type: String,

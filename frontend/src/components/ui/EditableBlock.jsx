@@ -14,7 +14,7 @@ export default function EditableBlock({ section, page, model = 'content', projec
   useEffect(() => {
     if (!isEditMode) return;
 
-    // Listen for live updates from the Admin Panel
+    
     const handleMessage = (e) => {
       if (e.data.type === 'CONTENT_UPDATED' && e.data.section === section) {
         setEditedHtml(e.data.contentHtml);
@@ -30,7 +30,7 @@ export default function EditableBlock({ section, page, model = 'content', projec
     e.preventDefault();
     e.stopPropagation();
     
-    // Tell the Admin Panel to open the editor for this block
+    
     window.parent.postMessage({
       type: 'OPEN_EDITOR',
       page,

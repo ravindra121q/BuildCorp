@@ -13,16 +13,12 @@
   --color-brand-600: #404040;
   --color-brand-700: #262626;
   --color-brand-800: #171717;
-  --color-brand-900: #0a0a0a; /* Obsidian */
-  --color-brand-950: #050505; /* True Black */
-
-  --color-accent-400: #c5a059; /* Champagne Bronze */
-  --color-accent-500: #ad8b4a;
+  --color-brand-900: #0a0a0a;   --color-brand-950: #050505; 
+  --color-accent-400: #c5a059;   --color-accent-500: #ad8b4a;
   --color-accent-600: #8c6c36;
 
   --radius-sm: 0.125rem;
-  --radius-md: 0.25rem; /* Sharp, architectural edges */
-  --radius-lg: 0.5rem;
+  --radius-md: 0.25rem;   --radius-lg: 0.5rem;
   --radius-xl: 0.75rem;
 
   --shadow-premium: 0 20px 60px -10px rgba(5, 5, 5, 0.15);

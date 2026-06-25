@@ -3,8 +3,8 @@ import jwt from 'jsonwebtoken';
 export const loginAdmin = async (req, res) => {
   const { email, password } = req.body;
   
-  // In a real production app, fetch Admin user from DB and compare bcrypt hashes.
-  // Using requested hardcoded credentials for demo purposes.
+  
+  
   if (
     email === 'admin@gmail.com' && 
     password === 'admin@1234'

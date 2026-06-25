@@ -94,7 +94,7 @@ export default function ProjectForm() {
 
       <form onSubmit={handleSubmit} className="space-y-10">
         
-        {/* Core Metadata */}
+        {}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <label className="block text-xs uppercase tracking-widest font-bold opacity-50 mb-3">Project Title</label>
@@ -115,7 +115,7 @@ export default function ProjectForm() {
           </div>
         </div>
 
-        {/* Editorial Details */}
+        {}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <label className="block text-xs uppercase tracking-widest font-bold opacity-50 mb-3">Client</label>
@@ -144,7 +144,7 @@ export default function ProjectForm() {
           />
         </div>
 
-        {/* Cloudinary Media Uploads */}
+        {}
         <div className="border border-dashed border-white/20 p-8 bg-brand-900/20">
           <h2 className="text-xl font-heading font-bold tracking-widest uppercase mb-8">Cloudinary Media Asset Sync</h2>
           

@@ -19,7 +19,7 @@ const pageContentSchema = new mongoose.Schema({
   timestamps: true
 });
 
-// A compound index ensures we don't have duplicate sections for a single page
+
 pageContentSchema.index({ page: 1, section: 1 }, { unique: true });
 
 export default mongoose.model('PageContent', pageContentSchema);

@@ -22,7 +22,7 @@ export default function AdminSettings() {
       const data = res.data;
       const initialSettings = {};
       Object.values(SETTING_KEYS).flat().forEach(key => {
-        // Strip HTML if it exists in the database
+        
         const rawHtml = data[key]?.contentHtml || '';
         const doc = new DOMParser().parseFromString(rawHtml, 'text/html');
         initialSettings[key] = doc.body.textContent || '';
@@ -78,7 +78,7 @@ export default function AdminSettings() {
       </div>
 
       <div className="space-y-12">
-        {/* SEO Configuration */}
+        {}
         <section className="bg-brand-900/40 backdrop-blur-sm border border-white/5 p-8">
           <h2 className="text-xl font-heading tracking-widest uppercase text-accent-500 mb-8 border-b border-white/10 pb-4">
             Search Engine Optimization (SEO)

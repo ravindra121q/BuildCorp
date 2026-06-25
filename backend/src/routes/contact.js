@@ -4,19 +4,19 @@ import rateLimit from 'express-rate-limit';
 
 const router = express.Router();
 
-// Rate limiting for contact form submissions
+
 const contactLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 5, // Limit each IP to 5 requests per windowMs
+  windowMs: 15 * 60 * 1000, 
+  max: 5, 
   message: 'Too many contact requests from this IP, please try again later.'
 });
 
-// POST new contact message
+
 router.post('/', contactLimiter, async (req, res) => {
   try {
     const { name, email, phone, department, message } = req.body;
     
-    // Basic validation
+    
     if (!name || !email || !message) {
       return res.status(400).json({ message: 'Please provide name, email and message.' });
     }

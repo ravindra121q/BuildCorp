@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
   role: { type: String, enum: ['admin', 'editor'], default: 'admin' }
 }, { timestamps: true });
 
-// Password hash middleware
+
 userSchema.pre('save', async function(next) {
   if (!this.isModified('password')) return next();
   const salt = await bcrypt.genSalt(10);

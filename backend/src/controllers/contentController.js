@@ -5,8 +5,8 @@ export const getContentByPage = async (req, res) => {
     const { page } = req.params;
     const content = await PageContent.find({ page });
     
-    // Transform array into a key-value object for easier frontend consumption
-    // e.g., { "hero_title": "<h1>Welcome</h1>" }
+    
+    
     const contentMap = content.reduce((acc, curr) => {
       acc[curr.section] = curr;
       return acc;
@@ -22,7 +22,7 @@ export const upsertContent = async (req, res) => {
   try {
     const { page, section, contentHtml } = req.body;
     
-    // Update if exists, otherwise create
+    
     const updatedContent = await PageContent.findOneAndUpdate(
       { page, section },
       { contentHtml },
