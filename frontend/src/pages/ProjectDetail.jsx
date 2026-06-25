@@ -149,7 +149,7 @@ export default function ProjectDetail() {
       <section className="pb-32 bg-background">
         <Container size="xl" className="space-y-16 md:space-y-32">
           {project.gallery.map((img, idx) => (
-            <Reveal key={imgUrl} width="100%" delay={0.1}>
+            <Reveal key={img} width="100%" delay={0.1}>
               <div className={`w-full overflow-hidden ${idx % 2 === 0 ? 'md:w-[80%] ml-auto' : 'md:w-[70%]'}`}>
                 <img 
                   src={img} 
