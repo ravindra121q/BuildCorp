@@ -1,32 +1,53 @@
-# React + TypeScript + Vite
+# BuildCorp Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+The public-facing client application for BuildCorp. This is an ultra-premium, "dark mode first" website designed to showcase high-end real estate and construction projects with a cinematic aesthetic.
 
-Currently, two official plugins are available:
+## Tech Stack
+- **Framework:** React + Vite
+- **Styling:** Tailwind CSS (configured for deep obsidian dark mode)
+- **Animations:** GSAP (ScrollTrigger) & Framer Motion
+- **Scrolling:** Lenis (smooth scroll)
+- **Routing:** React Router DOM
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Folder Structure
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```
+frontend/
+├── public/               # Static assets like favicon, robots.txt, sitemap
+├── src/
+│   ├── assets/           # Images, SVGs, and brand assets
+│   ├── components/       # Reusable React components
+│   │   ├── layout/       # Navbar, Footer, MainLayout
+│   │   └── ui/           # Buttons, Cards, AnimatedText, Sections, EditableBlock (CMS)
+│   ├── pages/            # Page-level components (Home, About, Services, Projects, Contact)
+│   ├── services/         # API integration logic (api.js to connect to the backend)
+│   ├── tests/            # Unit tests for frontend logic
+│   ├── App.jsx           # Main application routing and wrapper
+│   ├── index.css         # Global CSS variables, fonts, and dark mode configuration
+│   └── main.jsx          # React DOM entry point
+├── doctor.config.json    # React Doctor accessibility & performance rules config
+├── package.json          # Dependencies and npm scripts
+└── vite.config.js        # Vite build configuration
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Setup & Running
+
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+2. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+   The site will be available at `http://localhost:5173`.
+
+3. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+## Key Features
+- **EditableBlocks:** Text content across pages is wrapped in `EditableBlock` components. These fetch text dynamically from the backend API, allowing the content to be updated via the Admin panel without altering the codebase.
+- **Cinematic Theme:** Driven by `index.css`, defaulting to dark obsidian backgrounds and glowing champagne accents.
