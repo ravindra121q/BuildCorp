@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-heading: "Outfit", system-ui, sans-serif;
+
+  --color-brand-50: #fafafa;
+  --color-brand-100: #f5f5f5;
+  --color-brand-200: #e5e5e5;
+  --color-brand-300: #d4d4d4;
+  --color-brand-400: #a3a3a3;
+  --color-brand-500: #737373;
+  --color-brand-600: #404040;
+  --color-brand-700: #262626;
+  --color-brand-800: #171717;
+  --color-brand-900: #0a0a0a; /* Obsidian */
+  --color-brand-950: #050505; /* True Black */
+
+  --color-accent-400: #c5a059; /* Champagne Bronze */
+  --color-accent-500: #ad8b4a;
+  --color-accent-600: #8c6c36;
+
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem; /* Sharp, architectural edges */
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+
+  --shadow-premium: 0 20px 60px -10px rgba(5, 5, 5, 0.15);
+  --shadow-premium-hover: 0 30px 60px -15px rgba(5, 5, 5, 0.25);
+}
+
+@layer base {
+  :root {
+    --background: var(--color-brand-950);
+    --foreground: #ffffff;
+  }
+
+  .light {
+    --background: #ffffff;
+    --foreground: var(--color-brand-950);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-brand-800;
+  }
+  body {
+    cursor: none;
+    background-color: var(--background);
+    color: var(--foreground);
+    @apply font-sans antialiased selection:bg-accent-500 selection:text-white;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-premium;
+  }
+  .dark .glass-panel {
+    @apply bg-brand-900/70 border-brand-800/50;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "rules": {
+    "react-doctor/require-reduced-motion": "off"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "info": {
+    "name": "BuildCorp Backend APIs",
+    "description": "Postman Collection for BuildCorp Construction Website Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Public",
+      "item": [
+        {
+          "name": "Get All Projects",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5000/api/projects"
+          }
+        },
+        {
+          "name": "Get Project By ID",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:5000/api/projects/PROJECT_ID_HERE"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "Login Admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "http://localhost:5000/api/admin/login",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@buildcorp.com\",\n  \"password\": \"securepassword\"\n}"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

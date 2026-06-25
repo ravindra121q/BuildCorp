@@ -1,0 +1,16 @@
+import multer from 'multer';
+import { CloudinaryStorage } from 'multer-storage-cloudinary';
+import cloudinary from '../config/cloudinary.js';
+
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'buildcorp_projects',
+    allowedFormats: ['jpg', 'png', 'jpeg', 'webp'],
+    transformation: [{ width: 2500, crop: 'limit' }] // Max width to optimize massive images
+  },
+});
+
+const upload = multer({ storage: storage });
+
+export default upload;
