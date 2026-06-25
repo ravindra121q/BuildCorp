@@ -8,12 +8,13 @@ import {
 } from '../controllers/projectController.js';
 import upload from '../middleware/upload.js';
 import { authenticateToken } from '../auth.js';
+import { setCache } from '../middleware/cache.js';
 
 const router = express.Router();
 
-router.get('/', getAllProjects);
+router.get('/', setCache, getAllProjects);
 
-router.get('/:id', getProjectById);
+router.get('/:id', setCache, getProjectById);
 
 
 router.post(
