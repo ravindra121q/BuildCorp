@@ -49,21 +49,21 @@ export default function Projects() {
             <EditableBlock 
               page="projects"
               section="subheading"
-              defaultHtml={content.subheading?.contentHtml || "Our Portfolio"}
+              defaultHtml={content.subheading?.contentHtml}
               className="text-accent-500 font-bold tracking-[0.3em] uppercase text-xs mb-2 block"
             />
           </Reveal>
           <EditableBlock 
             page="projects"
             section="heading"
-            defaultHtml={content.heading?.contentHtml || "Landmark Projects"}
+            defaultHtml={content.heading?.contentHtml}
             className="text-6xl md:text-8xl font-heading font-semibold tracking-tighter mb-4"
           />
           <Reveal delay={0.8}>
             <EditableBlock 
               page="projects"
               section="description"
-              defaultHtml={content.description?.contentHtml || "A showcase of our most ambitious developments. We don't just construct buildings; we engineer the future of urban landscapes with an editorial precision."}
+              defaultHtml={content.description?.contentHtml}
               className="max-w-3xl mt-6 border-l-2 border-accent-500 pl-6 text-brand-300 text-xl"
             />
           </Reveal>

@@ -11,18 +11,26 @@ import api from '../services/api';
 
 export default function Home() {
   const [content, setContent] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchContent = async () => {
       try {
         const res = await api.get('/content/home');
         setContent(res.data);
+        setLoading(false);
       } catch (err) {
         console.error(err);
       }
     };
     fetchContent();
   }, []);
+
+    if (loading) return (
+    <div className="min-h-screen flex items-center justify-center bg-brand-950">
+      <div className="w-16 h-16 border-4 border-brand-800 border-t-accent-500 rounded-full animate-spin"></div>
+    </div>
+  );
 
   return (
     <PageTransition>
@@ -43,7 +51,7 @@ export default function Home() {
               <EditableBlock 
                 page="home"
                 section="hero_subtitle_top"
-                defaultHtml={content.hero_subtitle_top?.contentHtml || "Defining the Skyline"}
+                defaultHtml={content.hero_subtitle_top?.contentHtml}
                 className="text-accent-400 font-bold tracking-[0.3em] uppercase text-xs md:text-sm mb-8 block"
               />
             </Reveal>
@@ -54,7 +62,7 @@ export default function Home() {
                   <EditableBlock 
                     page="home"
                     section="hero_title"
-                    defaultHtml={content.hero_title?.contentHtml || "Architecting <br/><span class='text-accent-500'>Tomorrow.</span>"}
+                    defaultHtml={content.hero_title?.contentHtml}
                     className="text-5xl md:text-8xl font-heading font-black uppercase tracking-tighter leading-[0.9] mb-8"
                   />
                 </div>
@@ -66,7 +74,7 @@ export default function Home() {
                 <EditableBlock 
                   page="home"
                   section="hero_subtitle"
-                  defaultHtml={content.hero_subtitle?.contentHtml || "We build the future with precision and sustainable innovation, delivering landmark projects across the globe."}
+                  defaultHtml={content.hero_subtitle?.contentHtml}
                   className="text-lg md:text-2xl font-light text-brand-200 leading-relaxed"
                 />
               </div>
@@ -84,20 +92,20 @@ export default function Home() {
         <Section theme="dark" className="border-t border-brand-900/50">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
             <Reveal delay={0.1}>
-              <EditableBlock page="home" section="stat_1_val" defaultHtml={content.stat_1_val?.contentHtml || "35+"} className="text-6xl md:text-7xl font-heading font-bold text-accent-500 mb-2" />
-              <EditableBlock page="home" section="stat_1_label" defaultHtml={content.stat_1_label?.contentHtml || "Years Experience"} className="text-brand-300 font-medium uppercase tracking-[0.2em] text-xs" />
+              <EditableBlock page="home" section="stat_1_val" defaultHtml={content.stat_1_val?.contentHtml} className="text-6xl md:text-7xl font-heading font-bold text-accent-500 mb-2" />
+              <EditableBlock page="home" section="stat_1_label" defaultHtml={content.stat_1_label?.contentHtml} className="text-brand-300 font-medium uppercase tracking-[0.2em] text-xs" />
             </Reveal>
             <Reveal delay={0.2}>
-              <EditableBlock page="home" section="stat_2_val" defaultHtml={content.stat_2_val?.contentHtml || "$4B+"} className="text-6xl md:text-7xl font-heading font-bold text-accent-500 mb-2" />
-              <EditableBlock page="home" section="stat_2_label" defaultHtml={content.stat_2_label?.contentHtml || "Projects Delivered"} className="text-brand-300 font-medium uppercase tracking-[0.2em] text-xs" />
+              <EditableBlock page="home" section="stat_2_val" defaultHtml={content.stat_2_val?.contentHtml} className="text-6xl md:text-7xl font-heading font-bold text-accent-500 mb-2" />
+              <EditableBlock page="home" section="stat_2_label" defaultHtml={content.stat_2_label?.contentHtml} className="text-brand-300 font-medium uppercase tracking-[0.2em] text-xs" />
             </Reveal>
             <Reveal delay={0.3}>
-              <EditableBlock page="home" section="stat_3_val" defaultHtml={content.stat_3_val?.contentHtml || "150+"} className="text-6xl md:text-7xl font-heading font-bold text-accent-500 mb-2" />
-              <EditableBlock page="home" section="stat_3_label" defaultHtml={content.stat_3_label?.contentHtml || "Awards Won"} className="text-brand-300 font-medium uppercase tracking-[0.2em] text-xs" />
+              <EditableBlock page="home" section="stat_3_val" defaultHtml={content.stat_3_val?.contentHtml} className="text-6xl md:text-7xl font-heading font-bold text-accent-500 mb-2" />
+              <EditableBlock page="home" section="stat_3_label" defaultHtml={content.stat_3_label?.contentHtml} className="text-brand-300 font-medium uppercase tracking-[0.2em] text-xs" />
             </Reveal>
             <Reveal delay={0.4}>
-              <EditableBlock page="home" section="stat_4_val" defaultHtml={content.stat_4_val?.contentHtml || "24/7"} className="text-6xl md:text-7xl font-heading font-bold text-accent-500 mb-2" />
-              <EditableBlock page="home" section="stat_4_label" defaultHtml={content.stat_4_label?.contentHtml || "Safety Commitment"} className="text-brand-300 font-medium uppercase tracking-[0.2em] text-xs" />
+              <EditableBlock page="home" section="stat_4_val" defaultHtml={content.stat_4_val?.contentHtml} className="text-6xl md:text-7xl font-heading font-bold text-accent-500 mb-2" />
+              <EditableBlock page="home" section="stat_4_label" defaultHtml={content.stat_4_label?.contentHtml} className="text-brand-300 font-medium uppercase tracking-[0.2em] text-xs" />
             </Reveal>
           </div>
         </Section>

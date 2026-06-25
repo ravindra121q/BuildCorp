@@ -27,18 +27,26 @@ const servicesMap = [
 
 export default function Services() {
   const [content, setContent] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchContent = async () => {
       try {
         const res = await api.get('/content/services');
         setContent(res.data);
+        setLoading(false);
       } catch (err) {
         console.error(err);
       }
     };
     fetchContent();
   }, []);
+
+    if (loading) return (
+    <div className="min-h-screen flex items-center justify-center bg-brand-950">
+      <div className="w-16 h-16 border-4 border-brand-800 border-t-accent-500 rounded-full animate-spin"></div>
+    </div>
+  );
 
   return (
     <PageTransition>
@@ -48,21 +56,21 @@ export default function Services() {
             <EditableBlock 
               page="services"
               section="subheading"
-              defaultHtml={content.subheading?.contentHtml || "Capabilities"}
+              defaultHtml={content.subheading?.contentHtml}
               className="text-accent-500 font-bold tracking-[0.3em] uppercase text-xs mb-6 block"
             />
           </Reveal>
           <EditableBlock 
             page="services"
             section="heading"
-            defaultHtml={content.heading?.contentHtml || "Our Services"}
+            defaultHtml={content.heading?.contentHtml}
             className="text-6xl md:text-8xl font-heading font-semibold tracking-tighter mb-10"
           />
           <Reveal delay={0.8}>
             <EditableBlock 
               page="services"
               section="description"
-              defaultHtml={content.description?.contentHtml || "We offer comprehensive construction management and general contracting services, executing the most complex architectural designs in the world."}
+              defaultHtml={content.description?.contentHtml}
               className="text-xl md:text-2xl text-brand-300 font-light max-w-3xl leading-relaxed"
             />
           </Reveal>

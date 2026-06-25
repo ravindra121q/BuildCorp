@@ -168,14 +168,14 @@ export default function ProjectDetail() {
             <EditableBlock 
               page="project_detail"
               section="cta_subheading"
-              defaultHtml={content.cta_subheading?.contentHtml || "Continue Exploring"}
+              defaultHtml={content.cta_subheading?.contentHtml}
               className="text-accent-500 font-bold tracking-[0.3em] uppercase text-xs mb-8 block"
             />
             <Link to="/projects" className="group inline-block cursor-none">
               <EditableBlock 
                 page="project_detail"
                 section="cta_heading"
-                defaultHtml={content.cta_heading?.contentHtml || "All Projects"}
+                defaultHtml={content.cta_heading?.contentHtml}
                 className="text-5xl md:text-8xl font-heading font-bold tracking-tighter text-white group-hover:text-accent-400 transition-colors duration-500"
               />
             </Link>

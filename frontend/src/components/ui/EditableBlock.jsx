@@ -41,7 +41,7 @@ export default function EditableBlock({ section, page, model = 'content', projec
     }, '*');
   };
 
-  const currentHtml = editedHtml !== null ? editedHtml : defaultHtml;
+  const currentHtml = editedHtml !== null ? editedHtml : (defaultHtml || "");
 
   return (
     <div 

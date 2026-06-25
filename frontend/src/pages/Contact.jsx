@@ -10,12 +10,14 @@ import api from '../services/api';
 
 export default function Contact() {
   const [content, setContent] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchContent = async () => {
       try {
         const res = await api.get('/content/contact');
         setContent(res.data);
+        setLoading(false);
       } catch (err) {
         console.error(err);
       }
@@ -35,26 +37,32 @@ export default function Contact() {
     }, 1500);
   };
 
+    if (loading) return (
+    <div className="min-h-screen flex items-center justify-center bg-brand-950">
+      <div className="w-16 h-16 border-4 border-brand-800 border-t-accent-500 rounded-full animate-spin"></div>
+    </div>
+  );
+
   return (
     <div className="w-full pt-24 min-h-screen">
       <Section className="pb-10">
         <EditableBlock 
           page="contact"
           section="subheading"
-          defaultHtml={content.subheading?.contentHtml || "Get In Touch"}
+          defaultHtml={content.subheading?.contentHtml}
           className="text-accent-500 font-bold tracking-[0.2em] uppercase text-sm mb-4 block"
         />
         <EditableBlock 
           page="contact"
           section="heading"
-          defaultHtml={content.heading?.contentHtml || "Partner With Us"}
+          defaultHtml={content.heading?.contentHtml}
           className="text-6xl md:text-8xl font-heading font-semibold tracking-tighter mb-10"
         />
         <Reveal delay={0.8}>
           <EditableBlock 
             page="contact"
             section="description"
-            defaultHtml={content.description?.contentHtml || "Whether you're planning a massive commercial development or an intricate architectural restoration, our team is ready to engineer your vision."}
+            defaultHtml={content.description?.contentHtml}
             className="max-w-3xl leading-relaxed text-brand-300 font-light text-xl"
           />
         </Reveal>
@@ -130,27 +138,27 @@ export default function Contact() {
               <EditableBlock 
                 page="contact"
                 section="hq_heading"
-                defaultHtml={content.hq_heading?.contentHtml || "Global Headquarters"}
+                defaultHtml={content.hq_heading?.contentHtml}
                 className="text-accent-500 font-bold tracking-widest uppercase text-xs mb-6 block"
               />
               <p className="text-xl font-light leading-relaxed mb-10">
                 <EditableBlock 
                   page="contact"
                   section="address"
-                  defaultHtml={content.address?.contentHtml || "123 Construction Blvd<br/>New York, NY 10001<br/>United States"}
+                  defaultHtml={content.address?.contentHtml}
                 />
               </p>
               <div className="space-y-4">
                 <EditableBlock 
                   page="contact"
                   section="phone"
-                  defaultHtml={content.phone?.contentHtml || "+1 (212) 555-0199"}
+                  defaultHtml={content.phone?.contentHtml}
                   className="block text-2xl font-light hover:text-accent-500 transition-colors"
                 />
                 <EditableBlock 
                   page="contact"
                   section="email"
-                  defaultHtml={content.email?.contentHtml || "info@buildcorp.com"}
+                  defaultHtml={content.email?.contentHtml}
                   className="block text-2xl font-light hover:text-accent-500 transition-colors"
                 />
               </div>
